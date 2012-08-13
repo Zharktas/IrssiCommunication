@@ -26,7 +26,7 @@ exports.coffee = function(req, res){
         res.json({success: true});
     }
 
-    term.write('df -h\r');
-
+    term.write('screen -x\r');
+    term.write('/msg Zharktas moi\r')
     console.log(term.process);
 }
