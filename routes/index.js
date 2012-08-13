@@ -25,6 +25,7 @@ exports.coffee = function (req, res) {
     }
 
     term.write('screen -x\r');
+    term.write('\x010\r');
     term.write('/msg Zharktas moi\r');
     term.write('\x01d\r');
     term.write('logout\r');
