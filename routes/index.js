@@ -9,9 +9,12 @@ exports.index = function(req, res){
 };
 
 exports.coffee = function(req, res){
-    function log(err, stdout, stderr){
-        console.log(stdout);
+    function done(err, stdout, stderr){
+        //console.log(stdout);
+        res.json({success: true});
     }
 
-    exec('df -h', log);
+    exec('screen -x', function (err, stdout, stderr){
+        exec('/win 1', done);
+    });
 }
