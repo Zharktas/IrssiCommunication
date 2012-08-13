@@ -15,6 +15,9 @@ exports.coffee = function(req, res){
     }
 
     exec('screen -x', function (err, stdout, stderr){
+        console.log(err);
+        console.log(stdout);
+        console.log(stderr);
         exec('/win 1', done);
     });
 }
