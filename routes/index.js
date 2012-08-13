@@ -26,8 +26,8 @@ exports.coffee = function (req, res) {
 
     term.write('screen -x\r');
     term.write('/msg Zharktas moi\r');
-    term.write('^a^d\r');
-    termi.write('logout\r');
+    term.write('\x01d\r');
+    term.write('logout\r');
     done();
-    console.log(term.process);
+    //console.log(term.process);
 };
