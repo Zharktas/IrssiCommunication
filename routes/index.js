@@ -17,7 +17,7 @@ exports.sendMsg = function (req, res) {
     });
 
     term.on('data', function (data) {
-        console.log(data);
+        //console.log(data);
     });
 
     function done() {
