@@ -7,7 +7,7 @@ exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
-exports.coffee = function (req, res) {
+exports.sendMsg = function (req, res) {
     var term = pty.spawn('bash', [], {
         name:'xterm-color',
         cols:80,
@@ -24,9 +24,17 @@ exports.coffee = function (req, res) {
         res.json({success:true});
     }
 
+    var msg = req.query.msg;
+    var receiver = req.query.receiver;
+
+    if ( !msg || !receiver){
+        res.json({success: false});
+        return;
+    }
+
     term.write('screen -x\r');
     term.write('\x010\r');
-    term.write('/msg Zharktas moi\r');
+    term.write('/msg ' + receiver + ' ' + msg + '\r');
     term.write('\x01d\r');
     term.write('logout\r');
     done();
